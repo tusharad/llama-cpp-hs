@@ -87,4 +87,6 @@ test-suite llama-cpp-hs-test
     , bytestring
     , derive-storable
     , llama-cpp-hs
+    , tasty
+    , tasty-hunit
   default-language: Haskell2010
