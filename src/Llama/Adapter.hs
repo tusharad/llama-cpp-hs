@@ -1,4 +1,17 @@
-module Llama.Adapter where
+{- |
+Module      : Llama.Adapter
+Description : Adapter interface for llama-cpp
+Copyright   : (c) 2025 Tushar Adhatrao
+License     : MIT
+Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
+-}
+module Llama.Adapter (
+    initAdapterLora
+   , setAdapterLora
+    , rmAdapterLora
+    , clearAdapterLora
+    , applyAdapterCVec
+) where
 
 import Foreign
 import Foreign.C.String

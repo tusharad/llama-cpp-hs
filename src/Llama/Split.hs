@@ -1,4 +1,15 @@
-module Llama.Split where
+{- |
+Module      : Llama.Split
+Description : High level Split interface for llama-cpp
+Copyright   : (c) 2025 Tushar Adhatrao
+License     : MIT
+Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
+-}
+module Llama.Split (
+    splitPath
+    , splitPrefix
+   , printSystemInfo
+) where
 
 import Llama.Internal.Foreign
 import Foreign

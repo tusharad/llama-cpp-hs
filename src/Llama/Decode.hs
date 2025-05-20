@@ -1,4 +1,25 @@
-module Llama.Decode where
+{- |
+Module      : Llama.Decode
+Description : High level Decode interface for llama-cpp
+Copyright   : (c) 2025 Tushar Adhatrao
+License     : MIT
+Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
+-}
+module Llama.Decode (
+    batchInit
+, batchGetOne
+, freeBatch
+, encodeBatch
+, decodeBatch
+, setThreadCount
+, getThreadCount
+, getBatchThreadCount
+, setEmbeddingsEnabled
+, areEmbeddingsEnabled
+, setCausalAttention
+, setWarmupMode
+,  synchronizeContext
+) where
 
 import Foreign
 import Llama.Internal.Foreign

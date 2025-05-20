@@ -1,4 +1,21 @@
-module Llama.State where
+{- |
+Module      : Llama.State
+Description : High level State interface for llama-cpp
+Copyright   : (c) 2025 Tushar Adhatrao
+License     : MIT
+Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
+-}
+module Llama.State (
+   getStateSize
+, getStateData
+, setStateData
+, loadStateFromFile
+, saveStateToFile
+, getSequenceStateSize
+, setSequenceStateData
+, saveSequenceStateToFile
+, loadSequenceStateFromFile
+) where
 
 import Llama.Internal.Foreign
 import Llama.Internal.Types
@@ -72,7 +89,7 @@ setSequenceStateData :: Context -> ByteString -> LlamaSeqId -> IO Word64
 setSequenceStateData (Context ctxFPtr) bs seqId = do
   withForeignPtr ctxFPtr $ \ctxPtr -> do
     withArray (BS.unpack bs) $ \srcPtr -> do
-      fromIntegral <$> 
+      fromIntegral <$>
         c_llama_state_seq_set_data (CLlamaContext ctxPtr) srcPtr (fromIntegral (BS.length bs)) seqId
 
 -- | Save a sequence state to a file
@@ -81,7 +98,7 @@ saveSequenceStateToFile (Context ctxFPtr) filepath seqId tokens = do
   withForeignPtr ctxFPtr $ \ctxPtr -> do
     withArray tokens $ \tokenPtr -> do
       withCString filepath $ \cfilepath -> do
-        fromIntegral <$> 
+        fromIntegral <$>
           c_llama_state_seq_save_file (CLlamaContext ctxPtr) cfilepath seqId tokenPtr (fromIntegral (length tokens))
 
 -- | Load a sequence state from a file

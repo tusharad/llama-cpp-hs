@@ -1,4 +1,25 @@
-module Llama.Context where
+{- |
+Module      : Llama.Context
+Description : High level context interface for llama-cpp
+Copyright   : (c) 2025 Tushar Adhatrao
+License     : MIT
+Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
+-}
+module Llama.Context (
+    supportsRpc
+, supportsGpuOffload
+, supportsMLock
+, supportsMMap
+, getMaxDevices
+, getTimeUs
+, getContextSize
+, getBatchSize
+, getUnbatchedSize
+, getMaxSeqCount
+, getPoolingType
+, detachThreadPool
+, defaultContextParams
+) where
 
 import Llama.Internal.Foreign
 import Llama.Internal.Types

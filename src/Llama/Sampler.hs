@@ -1,4 +1,44 @@
-module Llama.Sampler where
+{- |
+Module      : Llama.Sampler
+Description : High level Sampler interface for llama-cpp
+Copyright   : (c) 2025 Tushar Adhatrao
+License     : MIT
+Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
+-}
+module Llama.Sampler (
+    defaultSamplerChainParams
+, initSampler
+, getSamplerName
+, acceptTokenWithSampler
+, applySampler
+, resetSampler
+, cloneSampler
+, initSamplerChain
+, addSamplerToChain
+, getSamplerFromChain
+, getSamplerChainLength
+, removeSamplerFromChain
+, initGreedySampler
+, initDistributedSampler
+, initTopKSampler
+, initTopPSampler
+, initMinPSampler
+, initTypicalSampler
+, initTempSampler
+, initTempExtSampler
+, initXTCSampler
+, initTopNSigmaSampler
+, initMirostatSampler
+, initMirostatV2Sampler
+, initGrammarSampler
+, initGrammarLazyPatternsSampler
+, initPenaltiesSampler
+, initDrySampler
+, initLogitBiasSampler
+, initInfillSampler
+, getSamplerSeed
+, sampleWithSampler
+) where
 
 import Llama.Internal.Types
 import Llama.Internal.Types.Params

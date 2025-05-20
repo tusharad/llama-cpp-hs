@@ -1,4 +1,16 @@
-module Llama.ChatTemplate where
+{- |
+Module      : Llama.ChatTemplate
+Description : Chat template related functions for llama-cpp
+Copyright   : (c) 2025 Tushar Adhatrao
+License     : MIT
+Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
+-}
+module Llama.ChatTemplate (
+    ChatMessage (..)
+    , toCLlamaChatMessage
+   , chatApplyTemplate
+   , chatGetBuiltinTemplates
+  ) where
 
 import Data.Functor
 import Foreign

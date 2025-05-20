@@ -1,4 +1,26 @@
-module Llama.KVCache where
+{- |
+Module      : Llama.KVCache
+Description : High level KVCache interface for llama-cpp
+Copyright   : (c) 2025 Tushar Adhatrao
+License     : MIT
+Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
+-}
+module Llama.KVCache (
+    kvCacheViewInit
+, kvSelfSeqAdd
+, kvSelfSeqDiv
+, kvSelfSeqPosMax
+, kvSelfDefrag
+, kvSelfCanShift
+, kvSelfUpdate
+, kvSelfSeqKeep
+, kvSelfSeqCopy
+, kvSelfSeqRemove
+, kvSelfClear
+, kvSelfUsedCells
+, kvSelfNumTokens
+, kvCacheViewUpdate
+) where
 
 import Llama.Internal.Types
 import Foreign
@@ -20,7 +42,7 @@ getKVCache (Context ctxFPtr) =
 -- | Convenience wrapper that allocates a LlamaKvCacheView and initializes it
 kvCacheViewInit :: Context -> Int -> IO LlamaKvCacheView
 kvCacheViewInit (Context fPtr) n_seq_max_ = do
-    withForeignPtr fPtr $ \contextPtr -> do 
+    withForeignPtr fPtr $ \contextPtr -> do
       alloca $ \pView -> do
         c_llama_kv_cache_view_init_into (CLlamaContext contextPtr) (fromIntegral n_seq_max_) pView
         peek pView

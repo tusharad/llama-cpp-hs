@@ -1,4 +1,15 @@
-module Llama.Tokenize where
+{- |
+Module      : Llama.Tokenize
+Description : High level Tokenize interface for llama-cpp
+Copyright   : (c) 2025 Tushar Adhatrao
+License     : MIT
+Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
+-}
+module Llama.Tokenize (
+    tokenize
+  ,  tokenToPiece
+  ,  detokenize
+) where
 
 import Llama.Internal.Foreign
 import Llama.Internal.Types

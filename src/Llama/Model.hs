@@ -1,4 +1,41 @@
-module Llama.Model where
+{- |
+Module      : Llama.Model
+Description : High level Model interface for llama-cpp
+Copyright   : (c) 2025 Tushar Adhatrao
+License     : MIT
+Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
+-}
+module Llama.Model (
+    defaultModelParams
+, loadModelFromFile
+, initContextFromModel
+, getModelVocab
+, getContextModel
+, getVocabType
+, getModelRoPEFreqScale
+, getModelNumKVHeads
+, getModelNumHeads
+, getModelNumLayers
+, getModelEmbeddingDim
+, getModelTrainingContextSize
+, getModelSize
+, getModelChatTemplate
+, getModelHasEncoder
+, getModelNumParams
+, getModelHasDecoder
+, getModelDecoderStartToken
+, getModelIsRecurrent
+, quantizeModel
+, quantizeModelDefault
+, defaultQuantizeParams
+, getModelMetaCount
+, getModelMetaValue
+, getModelMetaKeyByIndex
+, getModelMetaValueByIndex
+, getModelDescription
+, loadModelFromSplits
+, getModelRopeType
+) where
 
 import Data.Functor
 import Foreign

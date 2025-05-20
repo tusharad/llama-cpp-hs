@@ -1,4 +1,32 @@
-module Llama.Vocab where
+{- |
+Module      : Llama.Tokenize
+Description : High level Tokenize interface for llama-cpp
+Copyright   : (c) 2025 Tushar Adhatrao
+License     : MIT
+Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
+-}
+module Llama.Vocab (
+    getVocabSize
+, getVocabTokenCount
+, getVocabTokenText
+, getVocabTokenScore
+, getVocabTokenAttr
+, isVocabTokenEog
+, isVocabTokenControl
+, getVocabBosToken
+, getVocabEosToken
+, getVocabEotToken
+, getVocabSepToken
+, getVocabNlToken
+, getVocabPadToken
+, getVocabAddBOSToken
+, getVocabAddEOSToken
+, getVocabFIMPrefixToken
+, getVocabFIMSuffixToken
+, getVocabFIMMiddleToken
+, getVocabFIMPADToken
+, getVocabFIMSeparatorToken
+) where
 
 import Llama.Internal.Foreign
 import Llama.Internal.Types

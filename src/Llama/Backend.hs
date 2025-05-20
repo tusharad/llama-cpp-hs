@@ -1,4 +1,14 @@
-module Llama.Backend where
+{- |
+Module      : Llama.Backend
+Description : Backend related functions for llama-cpp
+Copyright   : (c) 2025 Tushar Adhatrao
+License     : MIT
+Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
+-}
+module Llama.Backend (
+    llamaBackendInit
+    , llamaBackendFree
+) where
 {-
 Backend and intialization related functions for Llama.cpp
 -}
