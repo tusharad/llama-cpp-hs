@@ -13,5 +13,18 @@ pkgs.mkShell {
 
    pkgs.gmp
    pkgs.stack
+   pkgs.curl
   ];
+
+  shellHook = ''
+    FILE="Qwen3-0.6B-Q4_K_M.gguf"
+    URL="https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/$FILE"
+
+    if [ ! -f "$FILE" ]; then
+      echo "Downloading $FILE from HuggingFace..."
+      curl -L -o "$FILE" "$URL"
+    else
+      echo "$FILE already exists."
+    fi
+  '';
 }

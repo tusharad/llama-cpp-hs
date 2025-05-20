@@ -5,21 +5,22 @@ Copyright   : (c) 2025 Tushar Adhatrao
 License     : MIT
 Maintainer  : Tushar Adhatrao <tusharadhatrao@gmail.com>
 -}
-module Llama.Decode (
-    batchInit
-, batchGetOne
-, freeBatch
-, encodeBatch
-, decodeBatch
-, setThreadCount
-, getThreadCount
-, getBatchThreadCount
-, setEmbeddingsEnabled
-, areEmbeddingsEnabled
-, setCausalAttention
-, setWarmupMode
-,  synchronizeContext
-) where
+module Llama.Decode
+  ( batchInit
+  , batchGetOne
+  , freeBatch
+  , encodeBatch
+  , decodeBatch
+  , setThreadCount
+  , getThreadCount
+  , getBatchThreadCount
+  , setEmbeddingsEnabled
+  , areEmbeddingsEnabled
+  , setCausalAttention
+  , setThreadCounts
+  , setWarmupMode
+  , synchronizeContext
+  ) where
 
 import Foreign
 import Llama.Internal.Foreign
@@ -114,7 +115,6 @@ setWarmupMode :: Context -> Bool -> IO ()
 setWarmupMode (Context ctxFPtr) warm =
   withForeignPtr ctxFPtr $ \ctxPtr ->
     c_llama_set_warmup (CLlamaContext ctxPtr) (fromBool warm)
-
 
 {-
 type AbortCallback = Ptr () -> IO CInt
