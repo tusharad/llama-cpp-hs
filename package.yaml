@@ -5,17 +5,21 @@ license: MIT
 author: "tushar"
 maintainer: "tusharadhatrao@gmail.com"
 copyright: "2025 tushar"
-
+category: ai, ffi, natural-language-processing
 extra-source-files:
   - README.md
   - CHANGELOG.md
 
-description: Haskell bindings for llama.cpp
+description:
+  Haskell bindings for [llama.cpp](https://github.com/ggerganov/llama.cpp),
+  a performant, C++-based inference engine for running large language models
+  (LLMs) like LLaMA, Mistral, Qwen, and others directly on local hardware.
+synopsis: Haskell FFI bindings to the llama.cpp LLM inference library
 
 dependencies:
   - base >= 4.7 && < 5
-  - bytestring
-  - derive-storable
+  - bytestring >= 0.9 && < 0.13
+  - derive-storable >= 0.2 && < 0.4
 
 ghc-options:
   - -Wall
