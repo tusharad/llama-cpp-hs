@@ -61,6 +61,37 @@ Search for compatible GGUF models:
 
 ---
 
+Sure! Here's a clear and concise note you can add to your `README.md`:
+
+---
+
+## llama.cpp Compatibility
+
+> **Note:** `llama-cpp-hs` currently targets the [`b5392`](https://github.com/ggerganov/llama.cpp/releases/tag/b5392) 
+tag of [`llama.cpp`](https://github.com/ggerganov/llama.cpp).
+> Using older versions (such as those provided by some system package managers like Fedora) may result in **linker errors** 
+due to missing symbols (e.g., `llama_set_warmup`, `llama_sampler_init_*`).
+
+To ensure compatibility:
+
+* Use the provided `nix-shell`, which automatically pulls in the correct version.
+* Or manually clone and build `llama.cpp` from tag [`b5392`](https://github.com/ggerganov/llama.cpp/releases/tag/b5392).
+
+```sh
+git clone https://github.com/ggerganov/llama.cpp
+cd llama.cpp
+git checkout b5392
+mkdir build && cd build
+cmake ..
+make
+sudo make install
+```
+
+We plan to add a version check to the build process in the future.
+
+---
+
+
 ## Current State
 
 The codebase is still under active development and may undergo breaking changes. Use it with caution in production environments.
